@@ -9,6 +9,8 @@ import {
   Route,
 } from "react-router-dom";
 
+console.log('cambio');
+
 function App() {
   return (
     <>
