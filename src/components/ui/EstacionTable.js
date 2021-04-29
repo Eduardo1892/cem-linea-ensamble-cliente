@@ -1,7 +1,7 @@
 import React  from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-const EstacionTable = ({estaciones, handleClickEliminar}) => {    
+const EstacionTable = ({estaciones, handleClickEliminar, handleClickModificar}) => {    
 
 
 
@@ -33,16 +33,15 @@ const EstacionTable = ({estaciones, handleClickEliminar}) => {
                                 <td className="text-center">
                                     <Button 
                                         variant="outline-info"
+                                        onClick={e => handleClickModificar(estacion)}
                                     >
                                      Modificar
                                     </Button>
                                 </td>
                                 <td className="text-center">
                                     <Button 
-                                        variant="outline-info"
-                                        onClick={e => {
-                                            handleClickEliminar(codigo)
-                                        }}
+                                        variant="danger"
+                                        onClick={e => handleClickEliminar(codigo)}
                                     >
                                      Eliminar
                                     </Button>
