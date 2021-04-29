@@ -7,6 +7,7 @@ const EstacionBusqueda = ({handleClickBuscar}) => {
 
     const [filtro, setFiltroBusqueda] = useState('')
 
+
 return(
 
     <Row>

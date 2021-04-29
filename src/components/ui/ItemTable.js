@@ -1,8 +1,7 @@
 import React  from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-const EstacionTable = ({estaciones, handleClickEliminar}) => {    
-
+const ItemTable = ({items, handleClickEliminar}) => {    
 
 
     return (
@@ -21,9 +20,9 @@ const EstacionTable = ({estaciones, handleClickEliminar}) => {
                 </thead>
                 <tbody>
                     {
-                        estaciones.map((estacion, index) => {
+                        items.map((item, index) => {
 
-                            const {codigo, descripcion } = estacion
+                            const {codigo, descripcion } = item
 
                             return(
                                 <tr key={index}>
@@ -58,4 +57,4 @@ const EstacionTable = ({estaciones, handleClickEliminar}) => {
     )
 }
 
-export default EstacionTable
+export default ItemTable

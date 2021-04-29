@@ -1,3 +1,11 @@
+import Login from './components/pages/Login';
+import Estaciones from './components/pages/Estaciones'
+import Usuarios from './components/pages/Usuarios'
+import Lectores from './components/pages/Lectores'
+import Home from './components/pages/Home'
+import Items from './components/pages/Items';
+import { ToastContainer, Zoom,  } from 'react-toastify'
+
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -5,13 +13,6 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from './components/pages/Login'
-import Estaciones from './components/pages/Estaciones'
-import Usuarios from './components/pages/Usuarios'
-import Lectores from './components/pages/Lectores'
-import Home from './components/pages/Home'
-
-import { ToastContainer, Zoom,  } from 'react-toastify'
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/estaciones">
             <Estaciones />
+          </Route>
+          <Route path="/items">
+            <Items />
           </Route>
           <Route path="/lectores">
             <Lectores />

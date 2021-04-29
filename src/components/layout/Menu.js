@@ -15,9 +15,8 @@ const Menu = () => {
                     <Nav.Link as={Link} to="/home">Inicio</Nav.Link>
                     {/* <Nav.Link as={Link} to="/home">Inicio</Nav.Link> */}
                     <NavDropdown title="Administrar" id="nav-administrar">
-                        <NavDropdown.Item href="#">Estaciones</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Items</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/estaciones">Estaciones</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/items">Items</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/lectores">Lectores</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/usuarios">Usuarios</NavDropdown.Item>
                         {/* <NavDropdown.Divider />
