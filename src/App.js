@@ -1,7 +1,3 @@
-import Login from './components/pages/Login';
-import Estaciones from './components/pages/Estaciones';
-import { ToastContainer, Zoom,  } from 'react-toastify'
-
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,7 +5,13 @@ import {
   Route,
 } from "react-router-dom";
 
-console.log('cambio');
+import Login from './components/pages/Login'
+import Estaciones from './components/pages/Estaciones'
+import Usuarios from './components/pages/Usuarios'
+import Lectores from './components/pages/Lectores'
+import Home from './components/pages/Home'
+
+import { ToastContainer, Zoom,  } from 'react-toastify'
 
 function App() {
   return (
@@ -31,7 +33,16 @@ function App() {
     <Router>
       <Switch>
           <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/estaciones">
             <Estaciones />
+          </Route>
+          <Route path="/lectores">
+            <Lectores />
+          </Route>
+          <Route path="/usuarios">
+            <Usuarios />
           </Route>
           <Route path="/">
             <Login />
