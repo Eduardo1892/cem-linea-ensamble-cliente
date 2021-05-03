@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap';
 import clienteAxios from '../../config/clienteAxios';
 
-const EstacionList = () => {
+const EstacionList = props => {
 
     const [estaciones, setEstaciones] = useState([])
     
@@ -20,10 +20,13 @@ const EstacionList = () => {
     }, [])
     
     return (
-        <Form.Group controlId="EstacionList">
+        <Form.Group>
             <Form.Label>Estaciones</Form.Label>
-            <Form.Control as="select">
-                
+            <Form.Control 
+                as="select"
+                {...props}
+            >
+                <option key={"0"} value={"0"}>{"SELECCIONE"}</option>
                 {
                     estaciones.map(estacion => {
                         const { codigo, descripcion } = estacion

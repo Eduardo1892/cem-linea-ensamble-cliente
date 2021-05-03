@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
+import LectorBusqueda from '../ui/LectorBusqueda'
+import LectorTable from '../ui/LectorTable'
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
-import LectorBusqueda from '../ui/LectorBusqueda'
-import LectorTable from '../ui/LectorTable'
 import Main from '../layout/Main'
+import LectorForm from '../ui/LectorForm'
+import { Button, Col, Row } from 'react-bootstrap'
 
 
 const Lectores = () => {
 
     const [lectores, setLectores] = useState([])
+    const [lectorModificar, setLectorModificar] = useState(null)
+    const [mostrarFormulario, setMostrarFormulario] = useState(false)
 
     const handleClickBuscar = async (codigo) => {
 
@@ -42,21 +46,57 @@ const Lectores = () => {
 
     }
 
+    const handleClickModificar = lector => {
+        setLectorModificar(lector)
+        setMostrarFormulario(true)
+    }
+
+    const handleClickVolver = () => {
+        setMostrarFormulario(false)
+    }
+
+
     return(
         <Main>
             <h5 className="mt-5 mb-3">Administrar Lectores</h5>
-            <LectorBusqueda
-                handleClickBuscar={handleClickBuscar}
-            />
-            <hr/>
-            {lectores.length > 0 &&
-        
-                <LectorTable 
-                    lectores={lectores}
-                    handleClickEliminar={handleClickEliminar}
+            {mostrarFormulario
+            ?
+                <LectorForm
+                    lectorModificar={lectorModificar}
+                    handleClickVolver={handleClickVolver}
+
                 />
-                
+
+            :
+                <>
+                <Row>
+                    <Col>
+                        <LectorBusqueda
+                            handleClickBuscar={handleClickBuscar}
+                        />
+                    </Col>
+                    <Col xs="auto">
+                        <Button
+                            variant="info"
+                            onClick={e => setMostrarFormulario(true)}
+                        >
+                            + Crear
+                        </Button>
+                    </Col>
+                </Row>
+                <hr/>
+                {lectores.length > 0 &&
+            
+                    <LectorTable 
+                        lectores={lectores}
+                        handleClickEliminar={handleClickEliminar}
+                        handleClickModificar={handleClickModificar}
+                    />
+                    
+                }
+                </>
             }
+            
         </Main>
     )
 

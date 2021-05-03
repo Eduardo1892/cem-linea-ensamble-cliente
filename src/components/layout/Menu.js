@@ -16,9 +16,13 @@ const Menu = () => {
                     {/* <Nav.Link as={Link} to="/home">Inicio</Nav.Link> */}
                     <NavDropdown title="Administrar" id="nav-administrar">
                         <NavDropdown.Item as={Link} to="/estaciones">Estaciones</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/estaciones-items">Estaciones Items</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/estaciones-origen-estaciones-destino">Estaciones Origen vs Estaciones Destino</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/items">Items</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/lectores">Lectores</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/maquinas">Maquinas</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/usuarios">Usuarios</NavDropdown.Item>
+
                         {/* <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>

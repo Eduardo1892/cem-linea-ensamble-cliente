@@ -1,7 +1,7 @@
 import React  from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {    
+const MaquinaTable = ({maquinas, handleClickEliminar, handleClickModificar}) => {    
 
 
     return (
@@ -12,6 +12,7 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
                     <th className="text-center">#</th>
                     <th className="text-center">Código</th>
                     <th className="text-center">Descripción</th>
+                    <th className="text-center">Máquina</th>
                     <th className="text-center">Modificar</th>
                     <th className="text-center">Eliminar</th>
                     <th></th>
@@ -20,19 +21,20 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
                 </thead>
                 <tbody>
                     {
-                        items.map((item, index) => {
+                        maquinas.map((maquina, index) => {
 
-                            const {codigo, descripcion } = item
+                            const {codigo, descripcion, codigo_estacion } = maquina
 
                             return(
                                 <tr key={index}>
                                 <td>{index +1}</td>
                                 <td>{codigo}</td>  
                                 <td>{descripcion}</td>
+                                <td>{codigo_estacion}</td>
                                 <td className="text-center">
                                     <Button 
                                         variant="outline-info"
-                                        onClick={e => handleClickModificar(item)}
+                                        onClick={e => handleClickModificar(maquina)}
                                     >
                                      Modificar
                                     </Button>
@@ -57,4 +59,4 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
     )
 }
 
-export default ItemTable
+export default MaquinaTable

@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
-import ItemBusqueda from '../ui/ItemBusqueda';
-import ItemTable from '../ui/ItemTable'; 
+import MaquinaBusqueda from '../ui/MaquinaBusqueda';
+import MaquinaTable from '../ui/MaquinaTable'; 
+import MaquinaForm from '../ui/MaquinaForm'
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
 import Main from '../layout/Main';
-import ItemForm from '../ui/ItemForm'
 import { Button, Col, Row } from 'react-bootstrap'
 
 
 
 
-const Items = () => {
+const Maquinas = () => {
 
-    const [items, setItems] = useState([])
-    const [itemModificar, setItemModificar] = useState(null)
+    const [maquinas, setMaquinas] = useState([])
+    const [maquinaModificar, setMaquinaModificar] = useState(null)
     const [mostrarFormulario, setMostrarFormulario] = useState(false)
 
-    const handleClickBuscar = async (filtro) => {
+    const handleClickBuscar = async (formularioBusqueda) => {
 
-        //toast.warning('Agregue una imagen, video ó audio de la pregunta.', {containerId: 'sys_msg'})
         try{
             
-            const resp = await clienteAxios.get('/api/items/buscar',{
+            const { filtro, codigoEstacion } = formularioBusqueda
+
+            const resp = await clienteAxios.get('/api/maquinas/buscar',{
                 params:{
                    filtro,
+                   codigoEstacion
                 }
             })
-            setItems(resp.data.items)
-            console.log(resp.data)            
-
+            setMaquinas(resp.data.maquinas)
         }catch(e){
             handleError(e)
         }
@@ -40,10 +40,10 @@ const Items = () => {
 
         try {
 
-            await clienteAxios.delete(`/api/items/eliminar/${ codigo }`)
-            const newItems = items.filter(item => item.codigo !== codigo)
-            setItems(newItems)
-            toast.success('ITEM ELIMINADO', {containerId: 'sys_msg'})
+            await clienteAxios.delete(`/api/maquinas/eliminar/${ codigo }`)
+            const newMaquinas = maquinas.filter(maquina => maquina.codigo !== codigo)
+            setMaquinas(newMaquinas)
+            toast.success('MÁQUINA ELIMINADA', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
@@ -51,8 +51,8 @@ const Items = () => {
 
     }
 
-    const handleClickModificar = item => {
-        setItemModificar(item)
+    const handleClickModificar = maquina => {
+        setMaquinaModificar(maquina)
         setMostrarFormulario(true)
     }
 
@@ -62,22 +62,22 @@ const Items = () => {
 
     return(
         <Main>
-            <h5 className="mt-5 mb-3">Administrar Items</h5>
+            <h5 className="mt-5 mb-3">Administrar Maquinas</h5>
             {mostrarFormulario
             ?
-                <ItemForm
-                    itemModificar={itemModificar}
+                <MaquinaForm
+                    maquinaModificar={maquinaModificar}
                     handleClickVolver={handleClickVolver}
                 />  
             :
                 <>
                 <Row>
                     <Col>
-                    <ItemBusqueda
+                    <MaquinaBusqueda
                         handleClickBuscar={handleClickBuscar}
                     />
                     </Col>
-                    <Col xs={"auto"}>
+                    <Col xs={"auto"} className="d-flex align-items-end">
                         <Button
                             variant="info"
                             onClick={e => setMostrarFormulario(true)}
@@ -88,9 +88,9 @@ const Items = () => {
                 </Row>
                 
                 <hr/>
-                {items.length > 0 && 
-                    <ItemTable
-                        items={items}
+                {maquinas.length > 0 && 
+                    <MaquinaTable
+                        maquinas={maquinas}
                         handleClickEliminar={handleClickEliminar}
                         handleClickModificar={handleClickModificar}
                     />
@@ -103,4 +103,4 @@ const Items = () => {
 
 }
 
-export default Items
+export default Maquinas

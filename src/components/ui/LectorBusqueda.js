@@ -20,7 +20,7 @@ const LectorBusqueda = ({handleClickBuscar}) => {
                 }}
                 />
             </Col>
-            <Col>
+            <Col xs="auto">
                 <Button 
                     variant="danger"
                     onClick={e => {

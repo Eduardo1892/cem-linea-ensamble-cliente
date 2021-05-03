@@ -3,8 +3,6 @@ import { Table, Button } from 'react-bootstrap'
 
 const EstacionTable = ({estaciones, handleClickEliminar, handleClickModificar}) => {    
 
-
-
     return (
         <>
             <Table striped bordered hover variant="light" responsive> 

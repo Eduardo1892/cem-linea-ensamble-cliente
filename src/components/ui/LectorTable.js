@@ -1,7 +1,7 @@
 import React  from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-const LectorTable = ({lectores, handleClickEliminar}) => {    
+const LectorTable = ({lectores, handleClickEliminar, handleClickModificar}) => {    
 
     return (
         <>
@@ -10,6 +10,8 @@ const LectorTable = ({lectores, handleClickEliminar}) => {
                     <tr>
                     <th className="text-center">#</th>
                     <th className="text-center">Código</th>
+                    <th className="text-center">Modificar</th>
+                    <th className="text-center">Eliminar</th>
                     <th></th>
                     <th></th>
                     </tr>
@@ -27,6 +29,7 @@ const LectorTable = ({lectores, handleClickEliminar}) => {
                                 <td className="text-center">
                                     <Button 
                                         variant="outline-info"
+                                        onClick={e => handleClickModificar(lector)}
                                     >
                                      Modificar
                                     </Button>
