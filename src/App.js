@@ -1,4 +1,5 @@
 import Login from './components/pages/Login';
+import CodigoBarras from './components/pages/CodigoBarras'
 import Estaciones from './components/pages/Estaciones'
 import EstacionItems from './components/pages/EstacionItems'
 import EstacionOrigenVsEstacionDestinos from './components/pages/EstacionOrigenVsEstacionDestinos'
@@ -38,6 +39,9 @@ function App() {
       <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/codigo-barras">
+            <CodigoBarras />
           </Route>
           <Route path="/estaciones">
             <Estaciones />
