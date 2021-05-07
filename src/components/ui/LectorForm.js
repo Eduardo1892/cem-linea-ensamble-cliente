@@ -132,8 +132,7 @@ const LectorForm = ({lectorModificar, handleClickVolver}) => {
                 </Col>
             </Row>
         </Form>
-
-     );
+    )
 }
  
-export default LectorForm;
+export default LectorForm

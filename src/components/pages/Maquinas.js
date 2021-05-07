@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import MaquinaBusqueda from '../ui/MaquinaBusqueda';
-import MaquinaTable from '../ui/MaquinaTable'; 
+import MaquinaBusqueda from '../ui/MaquinaBusqueda'
+import MaquinaTable from '../ui/MaquinaTable' 
 import MaquinaForm from '../ui/MaquinaForm'
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
-import Main from '../layout/Main';
+import Main from '../layout/Main'
 import { Button, Col, Row } from 'react-bootstrap'
-
-
 
 
 const Maquinas = () => {

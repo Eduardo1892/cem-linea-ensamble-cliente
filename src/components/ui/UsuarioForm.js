@@ -5,24 +5,30 @@ import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
 
 
-const EstacionForm = ({estacionModificar, handleClickVolver}) => {
+const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
 
 
     const [formulario, setFormulario] = useState({
         codigo: '',
-        descripcion: '',
-        es_inicio: false,
-        es_termino: false,
-        es_qa: false,
+        nombre: '',
+        password: '',
+        passwordConfirm: '',
+        inactivo: false,
     })   
 
-    const { codigo, descripcion, es_inicio, es_termino, es_qa } = formulario
+    const { codigo, nombre, password, passwordConfirm, inactivo } = formulario
 
     useEffect(() => {
-        if(estacionModificar){
-            setFormulario(estacionModificar)
+        if(usuarioModificar){
+            setFormulario({
+                codigo: usuarioModificar.codigo,
+                nombre: usuarioModificar.nombre,
+                password: usuarioModificar.password,
+                passwordConfirm: usuarioModificar.password,
+                inactivo: usuarioModificar.inactivo,
+            })
         }
-    }, [estacionModificar])
+    }, [usuarioModificar])
 
 
     const handleChangeInput = e => {
@@ -43,24 +49,28 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
 
     }
 
+    
     const handleClickCrear = async () => {
         
         try{
-            
-            await clienteAxios.post('/api/estaciones/crear',{
+
+            if(password !== passwordConfirm){
+                toast.success('La contraseña y su confirmación no coinciden', {containerId: 'sys_msg'})
+                return
+            }
+
+            await clienteAxios.post('/api/usuarios/crear',{
                 codigo, 
-                descripcion, 
-                es_inicio, 
-                es_termino, 
-                es_qa
+                nombre, 
+                password, 
+                inactivo, 
             })
 
             setFormulario({
                 codigo: '',
-                descripcion: '',
-                es_inicio: false,
-                es_termino: false,
-                es_qa: false,
+                nombre: '',
+                password: '',
+                inactivo: false,
             })
 
             toast.success('ESTACION CREADA', {containerId: 'sys_msg'})   
@@ -68,19 +78,18 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
         }catch(e){
             handleError(e)
         }
-
+      
     }
 
     const handleClickActualizar = async () => {
-        
+       
         try{
             
-            await clienteAxios.put('/api/estaciones/modificar',{
+            await clienteAxios.put('/api/usuarios/modificar',{
                 codigo, 
-                descripcion, 
-                es_inicio, 
-                es_termino, 
-                es_qa
+                nombre, 
+                password, 
+                inactivo, 
             })
 
             toast.success('ESTACION ACTUALIZADA', {containerId: 'sys_msg'})   
@@ -88,9 +97,9 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
         }catch(e){
             handleError(e)
         }
+        
 
     }
-
 
     return ( 
 
@@ -102,50 +111,53 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                     name="codigo"
                     placeholder="Código" 
                     value={codigo}
-                    readOnly={estacionModificar}
+                    readOnly={usuarioModificar}
                     onChange={handleChangeInput}
                 />
             </Form.Group>
-            <Form.Group controlId="descripcion">
-                <Form.Label>Descripción</Form.Label>
+            <Form.Group controlId="nombre">
+                <Form.Label>Nombre</Form.Label>
                 <Form.Control 
                     type="text" 
-                    name="descripcion"
-                    placeholder="Descripción" 
-                    value={descripcion}
+                    name="nombre"
+                    placeholder="Nombre" 
+                    value={nombre}
                     onChange={handleChangeInput}
                 />
             </Form.Group>
-            <Form.Group controlId="es_inicio">
-                <Form.Check 
-                    type="checkbox" 
-                    name="es_inicio"
-                    label="Estación de inicio" 
-                    checked={es_inicio}
-                    onChange={handleChangeCheckbox}
+            <Form.Group controlId="password">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control 
+                    type="password" 
+                    name="password"
+                    placeholder="Contraseña" 
+                    value={password}
+                    onChange={handleChangeInput}
                 />
             </Form.Group>
-            <Form.Group controlId="es_qa">
-                <Form.Check 
-                    type="checkbox" 
-                    name="es_qa"
-                    label="Estación de control de calidad" 
-                    checked={es_qa}
-                    onChange={handleChangeCheckbox}
+            <Form.Group controlId="passwordConfirm">
+                <Form.Label>Confirmar contraseña</Form.Label>
+                <Form.Control 
+                    type="password" 
+                    name="passwordConfirm"
+                    placeholder="Confirmar contraseña" 
+                    value={passwordConfirm}
+                    onChange={handleChangeInput}
                 />
             </Form.Group>
-            <Form.Group controlId="es_termino">
+
+            <Form.Group controlId="inactivo">
                 <Form.Check 
                     type="checkbox" 
-                    name="es_termino"
-                    label="Estación de término" 
-                    checked={es_termino}
+                    name="inactivo"
+                    label="Inactivo" 
+                    checked={inactivo}
                     onChange={handleChangeCheckbox}
                 />
             </Form.Group>
             <Row>
                 <Col xs={"auto"}>
-                    {estacionModificar
+                    {usuarioModificar
                     ?
                         <Button 
                             variant="danger" 
@@ -173,7 +185,8 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 </Col>
             </Row>
         </Form>
-    )
+
+     )
 }
  
-export default EstacionForm
+export default UsuarioForm

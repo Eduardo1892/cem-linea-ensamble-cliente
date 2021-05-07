@@ -141,7 +141,7 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
             </Row>
         </Form>
 
-     );
+     )
 }
  
-export default MaquinaForm;
+export default MaquinaForm

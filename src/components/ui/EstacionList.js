@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Form } from 'react-bootstrap';
-import clienteAxios from '../../config/clienteAxios';
+import { Form } from 'react-bootstrap'
+import clienteAxios from '../../config/clienteAxios'
 
 const EstacionList = props => {
 
@@ -21,7 +21,7 @@ const EstacionList = props => {
     
     return (
         <Form.Group>
-            <Form.Label>Estaciones</Form.Label>
+            <Form.Label>Estacion</Form.Label>
             <Form.Control 
                 as="select"
                 {...props}
@@ -38,4 +38,4 @@ const EstacionList = props => {
       )
 }
  
-export default EstacionList;
+export default EstacionList

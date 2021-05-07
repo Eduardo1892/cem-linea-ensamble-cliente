@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import ItemBusqueda from '../ui/ItemBusqueda';
-import ItemTable from '../ui/ItemTable'; 
+import ItemBusqueda from '../ui/ItemBusqueda'
+import ItemTable from '../ui/ItemTable' 
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
-import Main from '../layout/Main';
+import Main from '../layout/Main'
 import ItemForm from '../ui/ItemForm'
 import { Button, Col, Row } from 'react-bootstrap'
 

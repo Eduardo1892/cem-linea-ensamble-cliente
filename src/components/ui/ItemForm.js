@@ -126,8 +126,7 @@ const ItemForm = ({itemModificar, handleClickVolver}) => {
                 </Col>
             </Row>
         </Form>
-
-     );
+    )
 }
  
-export default ItemForm;
+export default ItemForm

@@ -1,9 +1,7 @@
-import React, { useState, useRef }  from 'react'
-import { Table, Button, Form } from 'react-bootstrap'
+import React from 'react'
+import { Table, Button } from 'react-bootstrap'
 
-const EstacionOrigenVsEstacionDestinoTable = ({ codigoEstacion ,estacionOrigenVsEstacionDestinos, handleClickEliminar, handleClickCrear}) => {    
-
-
+const EstacionOrigenVsEstacionDestinoTable = ({ codigoEstacion, estacionOrigenVsEstacionDestinos, handleClickEliminar, handleClickCrear}) => {    
 
     return (
         <>
@@ -25,29 +23,28 @@ const EstacionOrigenVsEstacionDestinoTable = ({ codigoEstacion ,estacionOrigenVs
 
                             return(
                                 <tr key={index}>
-                                <td>{index +1}</td>
-                                <td>{codigo}</td>  
-                                <td>{descripcion}</td>
-                                <td className="text-center">
-                                    {selected > 0 
-                                    ?
-                                        <Button 
-                                            variant="danger"
-                                            onClick={e => handleClickEliminar(codigoEstacion ,codigo)}
-                                        >
-                                            Quitar
-                                        </Button>
-                                    :
-                                        <Button 
-                                            variant="success"
-                                            onClick={e => handleClickCrear(codigoEstacion, codigo)}
-                                        >
-                                            Agregar
-                                        </Button>
-                                    
-                                    }
-                                    
-                                </td>
+                                    <td>{index +1}</td>
+                                    <td>{codigo}</td>  
+                                    <td>{descripcion}</td>
+                                    <td className="text-center">
+                                        {selected > 0 
+                                        ?
+                                            <Button 
+                                                variant="danger"
+                                                onClick={e => handleClickEliminar(codigoEstacion ,codigo)}
+                                            >
+                                                Quitar
+                                            </Button>
+                                        :
+                                            <Button 
+                                                variant="success"
+                                                onClick={e => handleClickCrear(codigoEstacion, codigo)}
+                                            >
+                                                Agregar
+                                            </Button>
+                                        
+                                        }
+                                    </td>
                                 </tr>
                             )
                         }) 

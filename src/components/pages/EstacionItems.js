@@ -37,7 +37,7 @@ const EstacionItems = () => {
 
     }, [codigoEstacion])
    
-    const handleClickCrear = async (codigoItem, cantidad, handleResetCantidad) => {
+    const handleClickCrear = async (codigoItem, cantidad) => {
         
         try{
             
@@ -60,7 +60,6 @@ const EstacionItems = () => {
             })
             
             setEstacionItems(newEstacionItems)
-            handleResetCantidad()
 
             toast.success('ITEMS AGREGADO A LA ESTACIÓN', {containerId: 'sys_msg'})   
 
