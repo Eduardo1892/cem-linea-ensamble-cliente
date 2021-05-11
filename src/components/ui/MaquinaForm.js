@@ -19,7 +19,11 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
 
     useEffect(() => {
         if(maquinaModificar){
-            setFormulario(maquinaModificar)
+            setFormulario({
+                codigo: maquinaModificar.codigo,
+                descripcion: maquinaModificar.descripcion,
+                codigoEstacion: maquinaModificar.codigo_estacion,
+            })
         }
     }, [maquinaModificar])
 
@@ -50,7 +54,7 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
                 codigoEstacion: '0'
             })
 
-            toast.success('MAQUINA CREADA', {containerId: 'sys_msg'})   
+            toast.dark('MAQUINA CREADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -68,7 +72,7 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
                 codigoEstacion
             })
 
-            toast.success('MAQUINA ACTUALIZADA', {containerId: 'sys_msg'})   
+            toast.dark('MAQUINA ACTUALIZADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -107,7 +111,6 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
                         name="codigoEstacion"
                         value={codigoEstacion}
                         onChange={handleChangeInput}
-                        
                 />
             </Form.Group>
             <Row>
@@ -115,14 +118,14 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
                     {maquinaModificar
                     ?
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickActualizar}
                         >
                             Actualizar
                         </Button>
                     :
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickCrear}
                         >
                             Crear
@@ -132,7 +135,7 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
                 </Col>
                 <Col xs={"auto"}>
                     <Button 
-                        variant="outline-info" 
+                        variant="outline-dark" 
                         onClick={handleClickVolver}
                     >
                         Volver
@@ -141,7 +144,7 @@ const MaquinaForm = ({maquinaModificar, handleClickVolver}) => {
             </Row>
         </Form>
 
-     );
+     )
 }
  
-export default MaquinaForm;
+export default MaquinaForm

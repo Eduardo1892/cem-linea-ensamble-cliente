@@ -1,0 +1,5 @@
+export const SIGNIN_dark = 'SIGNIN_dark'
+export const SIGNIN_ERROR = 'SIGNIN_ERROR'
+export const SIGNOUT = 'SIGNOUT'
+export const AUTH_USER_dark = 'AUTH_USER_dark'
+export const AUTH_USER_ERROR = 'AUTH_USER_ERROR'

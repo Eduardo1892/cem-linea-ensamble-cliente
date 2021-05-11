@@ -12,18 +12,18 @@ const UsuarioBusqueda = ({handleClickBuscar}) => {
         <Row>
             <Col>
                 <Form.Control 
-                id="filtro"
-                name="filtro"
-                type="text" 
-                placeholder="Busqueda por código ó nombre de usuario..."
-                onChange={e => {
-                    setFiltroBusqueda(e.target.value)
-                }}
+                    id="filtro"
+                    name="filtro"
+                    type="text" 
+                    placeholder="Busqueda por código ó nombre de usuario..."
+                    onChange={e => {
+                        setFiltroBusqueda(e.target.value)
+                    }}
                 />
             </Col>
-            <Col>
+            <Col xs={"auto"}>
                 <Button 
-                    variant="danger"
+                    variant="dark"
                     onClick={e => {
                         handleClickBuscar(filtro)
                     }}

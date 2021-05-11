@@ -26,16 +26,16 @@ const MaquinaBusqueda = ({handleClickBuscar}) => {
 
         <>
         <Row>
-            <Col xs="auto">
-            <Form.Group>
-                <EstacionList
-                        id="codigoEstacion"
-                        name="codigoEstacion"
-                        as="select"
-                        value={codigoEstacion}
-                        onChange={handleChangeInput}
-                />
-            </Form.Group>
+            <Col>
+                <Form.Group>
+                    <EstacionList
+                            id="codigoEstacion"
+                            name="codigoEstacion"
+                            as="select"
+                            value={codigoEstacion}
+                            onChange={handleChangeInput}
+                    />
+                </Form.Group>
             </Col>
         </Row>
         <Row>
@@ -51,7 +51,7 @@ const MaquinaBusqueda = ({handleClickBuscar}) => {
             </Col>
             <Col xs="auto">
                 <Button 
-                    variant="danger"
+                    variant="dark"
                     onClick={e => {
                         handleClickBuscar(formularioBusqueda)
                     }}

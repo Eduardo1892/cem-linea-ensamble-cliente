@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import MaquinaBusqueda from '../ui/MaquinaBusqueda';
-import MaquinaTable from '../ui/MaquinaTable'; 
+import MaquinaBusqueda from '../ui/MaquinaBusqueda'
+import MaquinaTable from '../ui/MaquinaTable' 
 import MaquinaForm from '../ui/MaquinaForm'
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import { toast } from 'react-toastify'
-import Main from '../layout/Main';
+import Main from '../layout/Main'
 import { Button, Col, Row } from 'react-bootstrap'
-
-
 
 
 const Maquinas = () => {
@@ -43,12 +41,17 @@ const Maquinas = () => {
             await clienteAxios.delete(`/api/maquinas/eliminar/${ codigo }`)
             const newMaquinas = maquinas.filter(maquina => maquina.codigo !== codigo)
             setMaquinas(newMaquinas)
-            toast.success('MÁQUINA ELIMINADA', {containerId: 'sys_msg'})
+            toast.dark('MÁQUINA ELIMINADA', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
 
+    }
+
+    const handleClickCrear = () => {
+        setMaquinaModificar(null)
+        setMostrarFormulario(true)
     }
 
     const handleClickModificar = maquina => {
@@ -79,8 +82,8 @@ const Maquinas = () => {
                     </Col>
                     <Col xs={"auto"} className="d-flex align-items-end">
                         <Button
-                            variant="info"
-                            onClick={e => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

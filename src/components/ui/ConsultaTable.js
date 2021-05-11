@@ -1,7 +1,7 @@
 import React  from 'react'
 import { Table } from 'react-bootstrap'
 
-const CodigoBarraTable = ({paquetes}) => {    
+const ConsultaTable = ({paquetes}) => {    
 
     return (
         <>
@@ -9,9 +9,9 @@ const CodigoBarraTable = ({paquetes}) => {
                 <thead>
                     <tr>
                     <th className="text-center">#</th>
-                    <th className="text-center">Código</th>
-                    <th className="text-center">Items</th>
                     <th className="text-center">Estación</th>
+                    <th className="text-center">Paquete</th>
+                    <th className="text-center">Item</th>
                     <th className="text-center">Codigo Barras</th>
                     <th className="text-center">Máquina</th>
                     <th className="text-center">Usuario</th>
@@ -44,9 +44,9 @@ const CodigoBarraTable = ({paquetes}) => {
                             return(
                                 <tr key={index}>
                                 <td>{index +1}</td>
+                                <td>{descripcionEstacion}</td>
                                 <td>{codigo}</td>  
                                 <td>{descripcionItem}</td>
-                                <td>{descripcionEstacion}</td>
                                 <td>{codigo_barra}</td>
                                 <td>{descripcionMaquina}</td>
                                 <td>{nombre}</td>
@@ -63,4 +63,4 @@ const CodigoBarraTable = ({paquetes}) => {
     )
 }
 
-export default CodigoBarraTable
+export default ConsultaTable

@@ -9,13 +9,11 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
             <Table striped bordered hover variant="light" responsive> 
                 <thead>
                     <tr>
-                    <th className="text-center">#</th>
-                    <th className="text-center">Código</th>
-                    <th className="text-center">Descripción</th>
-                    <th className="text-center">Modificar</th>
-                    <th className="text-center">Eliminar</th>
-                    <th></th>
-                    <th></th>
+                        <th className="text-center">#</th>
+                        <th className="text-center">Código</th>
+                        <th className="text-center">Descripción</th>
+                        <th className="text-center">Modificar</th>
+                        <th className="text-center">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +29,7 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
                                 <td>{descripcion}</td>
                                 <td className="text-center">
                                     <Button 
-                                        variant="outline-info"
+                                        variant="dark"
                                         onClick={e => handleClickModificar(item)}
                                     >
                                      Modificar
@@ -39,7 +37,7 @@ const ItemTable = ({items, handleClickEliminar, handleClickModificar}) => {
                                 </td>
                                 <td className="text-center">
                                     <Button 
-                                        variant="outline-info"
+                                        variant="outline-dark"
                                         onClick={e => {
                                             handleClickEliminar(codigo)
                                         }}

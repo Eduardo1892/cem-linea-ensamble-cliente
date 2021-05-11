@@ -3,7 +3,7 @@ import { Row, Col, Button, Form } from 'react-bootstrap'
 
 
 
-const CodigoBarraBusqueda = ({handleClickBuscar}) => {
+const ConsultaBusqueda = ({handleClickBuscar}) => {
 
     const [codigoBarra, setCodigoBarra] = useState('')
 
@@ -13,18 +13,18 @@ return(
     <Row>
         <Col>
             <Form.Control 
-            id="codigoBarra"
-            name="codigoBarra"
-            type="text" 
-            placeholder="Busqueda por código de barras..."
-            onChange={e => {
-                setCodigoBarra(e.target.value)
-             }}
+                id="codigoBarra"
+                name="codigoBarra"
+                type="text" 
+                placeholder="Busqueda por código de barras..."
+                onChange={e => {
+                    setCodigoBarra(e.target.value)
+                }}
             />
         </Col>
         <Col xs="auto">
             <Button 
-                variant="danger"
+                variant="dark"
                 onClick={e => {
                     handleClickBuscar(codigoBarra)
                 }}
@@ -38,5 +38,5 @@ return(
 
 }
 
-export default CodigoBarraBusqueda
+export default ConsultaBusqueda
 

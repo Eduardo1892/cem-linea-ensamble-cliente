@@ -24,7 +24,7 @@ const ItemBusqueda = ({handleClickBuscar}) => {
             </Col>
             <Col xs="auto">
                 <Button 
-                    variant="danger"
+                    variant="dark"
                     onClick={e => {
                         handleClickBuscar(filtro)
                     }}

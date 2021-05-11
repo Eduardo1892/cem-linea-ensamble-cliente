@@ -1,14 +1,12 @@
 import  React, { useState } from 'react'
-import CodigoBarraBusqueda from '../ui/CodigoBarraBusqueda';
-import CodigoBarraTable from '../ui/CodigoBarraTable'; 
+import ConsultaBusqueda from '../ui/ConsultaBusqueda';
+import ConsultaTable from '../ui/ConsultaTable'; 
 import clienteAxios from '../../config/clienteAxios'
 import { handleError } from '../../helpers'
 import Main from '../layout/Main';
 
 
-
-
-function CodigoBarras() {
+function Consulta() {
 
     const [paquetes, setPaquetes] = useState([])
     
@@ -32,13 +30,13 @@ function CodigoBarras() {
     console.log(paquetes)
     return(
         <Main>
-            <h5 className="mt-5 mb-3">Administrar Codigos de barra</h5>
-            <CodigoBarraBusqueda
+            <h5 className="mt-5 mb-3">Consulta por código de barra</h5>
+            <ConsultaBusqueda
                 handleClickBuscar={handleClickBuscar}
             />
             <hr/>
             {paquetes.length > 0 &&
-                <CodigoBarraTable 
+                <ConsultaTable 
                 paquetes={paquetes}
             />
             }
@@ -48,4 +46,4 @@ function CodigoBarras() {
 
 }
 
-export default CodigoBarras
+export default Consulta
