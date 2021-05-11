@@ -37,7 +37,7 @@ const EstacionOrigenVsEstacionDestinoTable = ({ codigoEstacion, estacionOrigenVs
                                             </Button>
                                         :
                                             <Button 
-                                                variant="success"
+                                                variant="dark"
                                                 onClick={e => handleClickCrear(codigoEstacion, codigo)}
                                             >
                                                 Agregar

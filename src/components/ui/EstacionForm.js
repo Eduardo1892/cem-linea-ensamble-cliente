@@ -63,7 +63,7 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 es_qa: false,
             })
 
-            toast.success('ESTACION CREADA', {containerId: 'sys_msg'})   
+            toast.dark('ESTACION CREADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -83,7 +83,7 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 es_qa
             })
 
-            toast.success('ESTACION ACTUALIZADA', {containerId: 'sys_msg'})   
+            toast.dark('ESTACION ACTUALIZADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -148,14 +148,14 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                     {estacionModificar
                     ?
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickActualizar}
                         >
                             Actualizar
                         </Button>
                     :
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickCrear}
                         >
                             Crear
@@ -165,7 +165,7 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 </Col>
                 <Col xs={"auto"}>
                     <Button 
-                        variant="outline-info" 
+                        variant="outline-dark" 
                         onClick={handleClickVolver}
                     >
                         Volver

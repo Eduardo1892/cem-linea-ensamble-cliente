@@ -11,14 +11,23 @@ const Main = props => {
     const { autenticado, usuarioAutenticado } = useContext(AuthContext)
 
     useEffect(() => {
-
-        if(autenticado && localStorage.getItem('token')){
-            //history.push('/home')
-        }else if(!autenticado && !localStorage.getItem('token')){
-            //history.push('/')
+        
+        console.log(autenticado)
+        if(!autenticado && !localStorage.getItem('token')){
+            history.push('/')
         }else if(!autenticado && localStorage.getItem('token')){
-            //usuarioAutenticado()
+            usuarioAutenticado()
         }
+        
+        // if(autenticado && localStorage.getItem('token')){
+        //     console.log()
+        //     history.push('/home')
+        // }else if(!autenticado && !localStorage.getItem('token')){
+        //     history.push('/')
+        // }else if(!autenticado && localStorage.getItem('token')){
+        //     usuarioAutenticado()
+        // }
+       
         // eslint-disable-next-line
     }, [autenticado])
 
@@ -26,7 +35,7 @@ const Main = props => {
     return ( 
         <>
         <Menu />
-        <Container>
+        <Container className="pt-3">
             {props.children}
         </Container>
         </>

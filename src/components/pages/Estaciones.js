@@ -38,11 +38,17 @@ function Estaciones() {
             await clienteAxios.delete(`/api/estaciones/eliminar/${ codigo }`)
             const newEstaciones = estaciones.filter(estacion => estacion.codigo !== codigo)
             setEstaciones(newEstaciones)
-            toast.success('ESTACION ELIMINADA', {containerId: 'sys_msg'})
+            toast.dark('ESTACION ELIMINADA', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
+
+    }
+
+    const handleClickCrear = () => {
+        setEstacionModificar(null)
+        setMostrarFormulario(true)
 
     }
 
@@ -74,8 +80,8 @@ function Estaciones() {
                     </Col>
                     <Col xs={"auto"}>
                         <Button
-                            variant="info"
-                            onClick={() => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

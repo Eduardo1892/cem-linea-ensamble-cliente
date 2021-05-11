@@ -61,7 +61,7 @@ const EstacionItems = () => {
             
             setEstacionItems(newEstacionItems)
 
-            toast.success('ITEMS AGREGADO A LA ESTACIÓN', {containerId: 'sys_msg'})   
+            toast.dark('ITEMS AGREGADO A LA ESTACIÓN', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -74,7 +74,7 @@ const EstacionItems = () => {
         try {
 
             await clienteAxios.delete(`/api/estaciones-items/eliminar/${ codigoEstacion }/${codigoItem}`)
-            toast.success('ITEM QUITADO', {containerId: 'sys_msg'})
+            toast.dark('ITEM QUITADO', {containerId: 'sys_msg'})
 
             const newEstacionItems = estacionItems.map(estacionItem => {
                 if(estacionItem.codigo === codigoItem){

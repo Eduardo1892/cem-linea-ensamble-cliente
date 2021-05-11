@@ -1,9 +1,9 @@
 import { useReducer } from "react"
 import { 
     SIGNIN_ERROR, 
-    SIGNIN_SUCCESS,
+    SIGNIN_dark,
     SIGNOUT,
-    AUTH_USER_SUCCESS,
+    AUTH_USER_dark,
     AUTH_USER_ERROR,
 } from "../types"
 import AuthContext from "./AuthContext"
@@ -30,11 +30,12 @@ const AuthState = props => {
                 password,
             })
             
-            localStorage.setItem('token', resp.data.token)
+            localStorage.setItem('token', 'token')
+            //localStorage.setItem('token', resp.data.token)
             tokenAuth(resp.data.token)
 
             dispatch({
-                type: SIGNIN_SUCCESS,
+                type: SIGNIN_dark,
                 payload: resp.data.usuario,
             })
             
@@ -66,7 +67,7 @@ const AuthState = props => {
             const resp = await clienteAxios.get('/api/auth/usuario')
 
             dispatch({
-                type: AUTH_USER_SUCCESS,
+                type: AUTH_USER_dark,
                 payload: resp.data.usuario,
             })
 

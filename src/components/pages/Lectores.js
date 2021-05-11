@@ -38,11 +38,17 @@ const Lectores = () => {
             await clienteAxios.delete(`/api/lectores/eliminar/${ codigo }`)
             const newLectores = lectores.filter(lector => lector.codigo !== codigo)
             setLectores(newLectores)
-            toast.success('LECTOR ELIMINADO', {containerId: 'sys_msg'})
+            toast.dark('LECTOR ELIMINADO', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
+
+    }
+
+    const handleClickCrear = () => {
+        setLectorModificar(null)
+        setMostrarFormulario(true)
 
     }
 
@@ -77,8 +83,8 @@ const Lectores = () => {
                     </Col>
                     <Col xs="auto">
                         <Button
-                            variant="info"
-                            onClick={e => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

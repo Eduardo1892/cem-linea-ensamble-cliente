@@ -61,7 +61,7 @@ const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrea
                                         </Button>
                                     :
                                         <Button 
-                                            variant="success"
+                                            variant="dark"
                                             onClick={e => handleClickCrear(codigo, cantidad)}
                                         >
                                             Agregar

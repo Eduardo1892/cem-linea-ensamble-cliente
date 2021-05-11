@@ -1,8 +1,8 @@
 import { 
     SIGNIN_ERROR, 
-    SIGNIN_SUCCESS,
+    SIGNIN_dark,
     SIGNOUT,
-    AUTH_USER_SUCCESS,
+    AUTH_USER_dark,
     AUTH_USER_ERROR, 
 } from "../types"
 
@@ -11,8 +11,8 @@ const AuthReducer = (state, action) => {
 
     switch (action.type) {
 
-        case AUTH_USER_SUCCESS:
-        case SIGNIN_SUCCESS:
+        case AUTH_USER_dark:
+        case SIGNIN_dark:
             return {
                 ...state,
                 usuario: action.payload,

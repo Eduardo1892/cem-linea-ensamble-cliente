@@ -55,7 +55,7 @@ const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
         try{
 
             if(password !== passwordConfirm){
-                toast.success('La contraseña y su confirmación no coinciden', {containerId: 'sys_msg'})
+                toast.dark('La contraseña y su confirmación no coinciden', {containerId: 'sys_msg'})
                 return
             }
 
@@ -73,7 +73,7 @@ const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
                 inactivo: false,
             })
 
-            toast.success('ESTACION CREADA', {containerId: 'sys_msg'})   
+            toast.dark('ESTACION CREADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -92,7 +92,7 @@ const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
                 inactivo, 
             })
 
-            toast.success('ESTACION ACTUALIZADA', {containerId: 'sys_msg'})   
+            toast.dark('ESTACION ACTUALIZADA', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -160,14 +160,14 @@ const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
                     {usuarioModificar
                     ?
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickActualizar}
                         >
                             Actualizar
                         </Button>
                     :
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickCrear}
                         >
                             Crear
@@ -177,7 +177,7 @@ const UsuarioForm = ({usuarioModificar, handleClickVolver}) => {
                 </Col>
                 <Col xs={"auto"}>
                     <Button 
-                        variant="outline-info" 
+                        variant="outline-dark" 
                         onClick={handleClickVolver}
                     >
                         Volver

@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-
+import { SocketProvider } from './context/socket/SocketContext'
+import { ToastContainer, Zoom,  } from 'react-toastify'
 import Login from './components/pages/Login'
 import Estaciones from './components/pages/Estaciones'
 import EstacionItems from './components/pages/EstacionItems'
@@ -15,8 +16,8 @@ import Maquinas from './components/pages/Maquinas'
 import Home from './components/pages/Home'
 import Items from './components/pages/Items'
 import AuthState from './context/auth/AuthState'
-import { SocketProvider } from './context/socket/SocketContext'
-import { ToastContainer, Zoom,  } from 'react-toastify'
+import Consulta from "./components/pages/Consulta"
+import DashBoard from "./components/pages/DashBoard"
 
 
 function App() {
@@ -40,8 +41,11 @@ function App() {
       <AuthState>
         <Router>
           <Switch>
+              <Route path="/consulta">
+                <Consulta />
+              </Route>
               <Route path="/home">
-                <Home />
+                <DashBoard />
               </Route>
               <Route path="/estaciones">
                 <Estaciones />

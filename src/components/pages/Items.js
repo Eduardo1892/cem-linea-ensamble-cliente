@@ -19,7 +19,6 @@ const Items = () => {
 
     const handleClickBuscar = async (filtro) => {
 
-        //toast.warning('Agregue una imagen, video ó audio de la pregunta.', {containerId: 'sys_msg'})
         try{
             
             const resp = await clienteAxios.get('/api/items/buscar',{
@@ -37,18 +36,22 @@ const Items = () => {
 
     const handleClickEliminar = async (codigo) =>{
 
-
         try {
 
             await clienteAxios.delete(`/api/items/eliminar/${ codigo }`)
             const newItems = items.filter(item => item.codigo !== codigo)
             setItems(newItems)
-            toast.success('ITEM ELIMINADO', {containerId: 'sys_msg'})
+            toast.dark('ITEM ELIMINADO', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
 
+    }
+
+    const handleClickCrear = () => {
+        setItemModificar(null)
+        setMostrarFormulario(true)
     }
 
     const handleClickModificar = item => {
@@ -79,8 +82,8 @@ const Items = () => {
                     </Col>
                     <Col xs={"auto"}>
                         <Button
-                            variant="info"
-                            onClick={e => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

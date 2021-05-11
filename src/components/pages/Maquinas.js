@@ -41,12 +41,17 @@ const Maquinas = () => {
             await clienteAxios.delete(`/api/maquinas/eliminar/${ codigo }`)
             const newMaquinas = maquinas.filter(maquina => maquina.codigo !== codigo)
             setMaquinas(newMaquinas)
-            toast.success('MÁQUINA ELIMINADA', {containerId: 'sys_msg'})
+            toast.dark('MÁQUINA ELIMINADA', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
 
+    }
+
+    const handleClickCrear = () => {
+        setMaquinaModificar(null)
+        setMostrarFormulario(true)
     }
 
     const handleClickModificar = maquina => {
@@ -77,8 +82,8 @@ const Maquinas = () => {
                     </Col>
                     <Col xs={"auto"} className="d-flex align-items-end">
                         <Button
-                            variant="info"
-                            onClick={e => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

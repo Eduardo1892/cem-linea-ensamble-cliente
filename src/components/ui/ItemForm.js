@@ -46,7 +46,7 @@ const ItemForm = ({itemModificar, handleClickVolver}) => {
                 descripcion: '',
             })
 
-            toast.success('ITEM CREADO', {containerId: 'sys_msg'})   
+            toast.dark('ITEM CREADO', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -63,7 +63,7 @@ const ItemForm = ({itemModificar, handleClickVolver}) => {
                 descripcion
             })
 
-            toast.success('ITEM ACTUALIZADO', {containerId: 'sys_msg'})   
+            toast.dark('ITEM ACTUALIZADO', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -101,14 +101,14 @@ const ItemForm = ({itemModificar, handleClickVolver}) => {
                     {itemModificar
                     ?
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickActualizar}
                         >
                             Actualizar
                         </Button>
                     :
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickCrear}
                         >
                             Crear
@@ -118,7 +118,7 @@ const ItemForm = ({itemModificar, handleClickVolver}) => {
                 </Col>
                 <Col xs={"auto"}>
                     <Button 
-                        variant="outline-info" 
+                        variant="outline-dark" 
                         onClick={handleClickVolver}
                     >
                         Volver

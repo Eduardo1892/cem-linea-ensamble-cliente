@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { useHistory } from 'react-router'
 import AuthContext from '../../context/auth/AuthContext'
 import Main from '../layout/Main'
 
 
 const Login = () => {
 
-    const {iniciarSesion} = useContext(AuthContext)
+    const history = useHistory()
+    const {autenticado, iniciarSesion} = useContext(AuthContext)
     
     const [formulario, setFormulario] = useState({
         codigo: '',
@@ -14,6 +16,12 @@ const Login = () => {
     })
 
     const {codigo, password} = formulario
+
+    useEffect(() => {
+        if(autenticado && localStorage.getItem('token')){
+            history.push('/home')
+        }
+    }, [autenticado])
 
     const handleChangeInput = e => {
 
@@ -67,7 +75,7 @@ const Login = () => {
                             
                         </Form>
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             type="submit"
                             block
                             onClick ={handleClickIngresar}

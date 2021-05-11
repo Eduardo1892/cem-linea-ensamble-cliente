@@ -53,7 +53,7 @@ const LectorForm = ({lectorModificar, handleClickVolver}) => {
                 inactivo: false,
             })
 
-            toast.success('LECTOR CREADO', {containerId: 'sys_msg'})   
+            toast.dark('LECTOR CREADO', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -70,7 +70,7 @@ const LectorForm = ({lectorModificar, handleClickVolver}) => {
                 inactivo
             })
 
-            toast.success('LECTOR ACTUALIZADO', {containerId: 'sys_msg'})   
+            toast.dark('LECTOR ACTUALIZADO', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -107,14 +107,14 @@ const LectorForm = ({lectorModificar, handleClickVolver}) => {
                     {lectorModificar
                     ?
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickActualizar}
                         >
                             Actualizar
                         </Button>
                     :
                         <Button 
-                            variant="danger" 
+                            variant="dark" 
                             onClick={handleClickCrear}
                         >
                             Crear
@@ -124,7 +124,7 @@ const LectorForm = ({lectorModificar, handleClickVolver}) => {
                 </Col>
                 <Col xs={"auto"}>
                     <Button 
-                        variant="outline-info" 
+                        variant="outline-dark" 
                         onClick={handleClickVolver}
                     >
                         Volver

@@ -37,12 +37,17 @@ const Usuarios = () => {
             await clienteAxios.delete(`/api/usuarios/eliminar/${ codigo }`)
             const newUsuarios = usuarios.filter(usuario => usuario.codigo !== codigo)
             setUsuarios(newUsuarios)
-            toast.success('USUARIO ELIMINADO', {containerId: 'sys_msg'})
+            toast.dark('USUARIO ELIMINADO', {containerId: 'sys_msg'})
    
          } catch (e) {
             handleError(e)
          }
 
+    }
+
+    const handleClickCrear = () => {
+        setUsuarioModificar(null)
+        setMostrarFormulario(true)
     }
 
     const handleClickModificar = usuario => {
@@ -75,8 +80,8 @@ const Usuarios = () => {
                     </Col>
                     <Col xs={"auto"}>
                         <Button
-                            variant="info"
-                            onClick={() => setMostrarFormulario(true)}
+                            variant="dark"
+                            onClick={handleClickCrear}
                         >
                             + Crear
                         </Button>

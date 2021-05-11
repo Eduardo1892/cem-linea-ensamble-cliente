@@ -35,3 +35,11 @@ export const handleError = (e) => {
     return error
 
 }
+
+export const fechaActual = () => {
+
+    let event = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    
+    return event.toLocaleDateString('es-ES', options)
+}

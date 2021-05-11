@@ -61,7 +61,7 @@ const EstacionOrigenVsEstacionDestinos = () => {
             
             setestacionOrigenVsEstacionDestino(newEstacionOrigenVsEstacionDestino)
 
-            toast.success('ESTACIÓN AGREGADA A LA ESTACIÓN DE ORIGEN', {containerId: 'sys_msg'})   
+            toast.dark('ESTACIÓN AGREGADA A LA ESTACIÓN DE ORIGEN', {containerId: 'sys_msg'})   
 
         }catch(e){
             handleError(e)
@@ -74,7 +74,7 @@ const EstacionOrigenVsEstacionDestinos = () => {
         try {
 
             await clienteAxios.delete(`/api/estaciones-origen-vs-estaciones-destino/eliminar/${ codigoEstacion }/${codigoEstacionDestino}`)
-            toast.success('ESTACIÓN DE ORIGEN QUITADA', {containerId: 'sys_msg'})
+            toast.dark('ESTACIÓN DE ORIGEN QUITADA', {containerId: 'sys_msg'})
 
             const newEstacionOrigenVsEstacionDestino = estacionOrigenVsEstacionDestinos.map(estacionOrigenVsEstacionDestino => {
                 if(estacionOrigenVsEstacionDestino.codigo === codigoEstacionDestino){
