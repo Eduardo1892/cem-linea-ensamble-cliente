@@ -12,11 +12,12 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
         codigo: '',
         descripcion: '',
         es_inicio: false,
+        es_proceso: false,
         es_termino: false,
         es_qa: false,
     })   
 
-    const { codigo, descripcion, es_inicio, es_termino, es_qa } = formulario
+    const { codigo, descripcion, es_inicio, es_proceso, es_termino, es_qa } = formulario
 
     useEffect(() => {
         if(estacionModificar){
@@ -50,7 +51,8 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
             await clienteAxios.post('/api/estaciones/crear',{
                 codigo, 
                 descripcion, 
-                es_inicio, 
+                es_inicio,
+                es_proceso,
                 es_termino, 
                 es_qa
             })
@@ -59,6 +61,7 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 codigo: '',
                 descripcion: '',
                 es_inicio: false,
+                es_proceso: false,
                 es_termino: false,
                 es_qa: false,
             })
@@ -79,6 +82,7 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                 codigo, 
                 descripcion, 
                 es_inicio, 
+                es_proceso,
                 es_termino, 
                 es_qa
             })
@@ -122,6 +126,15 @@ const EstacionForm = ({estacionModificar, handleClickVolver}) => {
                     name="es_inicio"
                     label="Estación de inicio" 
                     checked={es_inicio}
+                    onChange={handleChangeCheckbox}
+                />
+            </Form.Group>
+            <Form.Group controlId="es_proceso">
+                <Form.Check 
+                    type="checkbox" 
+                    name="es_proceso"
+                    label="Estación de proceso" 
+                    checked={es_proceso}
                     onChange={handleChangeCheckbox}
                 />
             </Form.Group>

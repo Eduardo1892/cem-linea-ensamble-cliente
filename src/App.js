@@ -7,8 +7,10 @@ import {
 import { SocketProvider } from './context/socket/SocketContext'
 import { ToastContainer, Zoom,  } from 'react-toastify'
 import Login from './components/pages/Login'
+import CodigoBarra from './components/pages/CodigoBarra'
 import Estaciones from './components/pages/Estaciones'
 import EstacionItems from './components/pages/EstacionItems'
+import EstacionStock from './components/pages/EstacionStock'
 import EstacionOrigenVsEstacionDestinos from './components/pages/EstacionOrigenVsEstacionDestinos'
 import Usuarios from './components/pages/Usuarios'
 import Lectores from './components/pages/Lectores'
@@ -44,6 +46,9 @@ function App() {
               <Route path="/consulta">
                 <Consulta />
               </Route>
+              <Route path="/codigo-barras">
+                <CodigoBarra />
+              </Route>
               <Route path="/home">
                 <DashBoard />
               </Route>
@@ -52,6 +57,9 @@ function App() {
               </Route>
               <Route path="/estaciones-items">
                 <EstacionItems />
+              </Route>
+              <Route path="/estaciones-stock">
+                <EstacionStock />
               </Route>
               <Route path="/estaciones-origen-estaciones-destino">
                 <EstacionOrigenVsEstacionDestinos />

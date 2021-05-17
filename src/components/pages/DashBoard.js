@@ -2,7 +2,7 @@ import  React, { useState, useEffect } from 'react'
 import clienteAxios from '../../config/clienteAxios'
 import EstacionCard from '../ui/EstacionCard'
 import { handleError } from '../../helpers'
-
+import Main from '../layout/Main'
 
 const DashBoard = () => {
 
@@ -28,11 +28,13 @@ const DashBoard = () => {
 
     return(
         <>
-            {estaciones.length > 0 &&
-                <EstacionCard
-                    estaciones={estaciones}
-                />
-            }
+            <Main>
+                {estaciones.length > 0 &&
+                    <EstacionCard
+                        estaciones={estaciones}
+                    />
+                }
+            </Main>
         </>
     )
 

@@ -19,8 +19,10 @@ const Menu = () => {
                     {/* <Nav.Link as={Link} to="/home">Inicio</Nav.Link> */}
                     <NavDropdown title="Administrar" id="nav-administrar">
                         <NavDropdown.Item as={Link} to="/consulta">Consulta</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/codigo-barras">Código Barras</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/estaciones">Estaciones</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/estaciones-items">Estaciones Items</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/estaciones-stock">Estaciones Stock</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/estaciones-origen-estaciones-destino">Estaciones Origen vs Destino</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/items">Items</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/lectores">Lectores</NavDropdown.Item>

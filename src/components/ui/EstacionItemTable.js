@@ -3,9 +3,14 @@ import { Button, Col, Form, Row, Table } from 'react-bootstrap'
 const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrear}) => {    
 
     const [cantidad, setCantidad] = useState(0)
+    const [cantidadRegistraPaquete, setCantidadRegistraPaquete] = useState(0)
 
-    const handleChangeInput = (e) => {
+    const handleChangeCantidad = (e) => {
         setCantidad(e.target.value)
+    }
+
+    const handleChangeCantidadRegistraPaquete = (e) => {
+        setCantidadRegistraPaquete(e.target.value)
     }
 
     return (
@@ -17,6 +22,7 @@ const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrea
                     <th className="text-center">Código</th>
                     <th className="text-center">Descripción</th>
                     <th className="text-center">Cantidad</th>
+                    <th className="text-center">Cantidad registra paquete</th>
                     <th className="text-center"></th>
                     </tr>
                 </thead>
@@ -24,8 +30,7 @@ const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrea
                     { 
                          estacionItems.map((estacionItem, index) => {
                             
-                            
-                            const {codigo, descripcion, cant_requerida, selected } = estacionItem
+                            const {codigo, descripcion, cant_requerida, cant_registra_paquete,selected } = estacionItem
                             
                             return(
                                 <tr key={index}>
@@ -41,13 +46,33 @@ const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrea
                                                     type="text" 
                                                     name="cantidadRequerida"
                                                     placeholder="Cantidad" 
-                                                    onChange={handleChangeInput}
+                                                    onChange={handleChangeCantidad}
                                                 />
                                             </Col>
                                         </Row>
                                         
+                                        
                                     : 
                                         cant_requerida
+                                    }
+                                </td>
+                                <td className="text-center">
+                                    {selected === 0 
+                                    ?
+                                        <Row>
+                                            <Col>
+                                                <Form.Control 
+                                                    type="text" 
+                                                    name="cantidadRegistraPaquete"
+                                                    placeholder="Cantidad" 
+                                                    onChange={handleChangeCantidadRegistraPaquete}
+                                                />
+                                            </Col>
+                                        </Row>
+                                        
+                                        
+                                    : 
+                                        cant_registra_paquete
                                     }
                                 </td>
                                 <td className="text-center">
@@ -62,7 +87,7 @@ const EstacionItemTable = ({ estacionItems, handleClickEliminar, handleClickCrea
                                     :
                                         <Button 
                                             variant="dark"
-                                            onClick={e => handleClickCrear(codigo, cantidad)}
+                                            onClick={e => handleClickCrear(codigo, cantidad, cantidadRegistraPaquete)}
                                         >
                                             Agregar
                                         </Button>

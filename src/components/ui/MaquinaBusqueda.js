@@ -6,7 +6,7 @@ import EstacionList from './EstacionList'
 
 const MaquinaBusqueda = ({handleClickBuscar}) => {
 
-    const [formularioBusqueda, setForumularioBusqueda] = useState({
+    const [formularioBusqueda, setFormularioBusqueda] = useState({
         filtro: '',
         codigoEstacion: '0',
     })
@@ -15,7 +15,7 @@ const MaquinaBusqueda = ({handleClickBuscar}) => {
 
     const handleChangeInput = e => {
 
-        setForumularioBusqueda({
+        setFormularioBusqueda({
             ...formularioBusqueda,
             [e.target.name]: e.target.value
         })

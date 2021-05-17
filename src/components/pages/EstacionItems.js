@@ -26,7 +26,6 @@ const EstacionItems = () => {
                     }
                 })
                 setEstacionItems(resp.data.items)
-                console.log(resp.data.items)
                
             }catch(e){
                 handleError(e)
@@ -37,14 +36,15 @@ const EstacionItems = () => {
 
     }, [codigoEstacion])
    
-    const handleClickCrear = async (codigoItem, cantidad) => {
+    const handleClickCrear = async (codigoItem, cantidad, cantidadRegistraPaquete) => {
         
         try{
             
             await clienteAxios.post('/api/estaciones-items/crear',{
                 codigoEstacion,
                 codigoItem,
-                cantidad
+                cantidad,
+                cantidadRegistraPaquete,
             })
             
             const newEstacionItems = estacionItems.map(estacionItem => {
@@ -53,6 +53,7 @@ const EstacionItems = () => {
                         ...estacionItem,
                         selected: 1,
                         cant_requerida: cantidad,
+                        cant_registra_paquete: cantidadRegistraPaquete,
                     }
                 }else{
                     return estacionItem
